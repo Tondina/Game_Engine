@@ -5,10 +5,22 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 
 verticies = (
-    (-1, -1, 0),
-    (1, -1.5, 0),
-    (1, 1, 0),
-    (-1, 1.5, 0)
+    (-3, -3, 0),
+    (3, -3, 0),
+    (3, 3, 0),
+    (-3, 3, 0),
+
+    (-1, -1, -1),
+    (1, -1, 0),
+    (1, 1 ,0),
+    (-1, 1, -1),
+
+    (1, -1, -1),
+    (1, 1 ,-1),
+
+  
+
+    
 )
 
 edges = (
@@ -16,7 +28,26 @@ edges = (
     (1,2),
     (2,3),
     (3,0),
-    (3,1)
+  
+    (5,6),
+   
+    (7,4),
+
+    (0,4),
+    (1,5),
+    (2,6),
+    (3,7),
+    (4,8),
+    (7,9)
+
+
+
+
+    
+    
+    
+    
+    
     )
 
 
@@ -33,7 +64,7 @@ def main():
     display = (800,600)
     pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
 
-    gluPerspective(45, (display[0]/display[1]), 0.1, 50.0)
+    gluPerspective(45,display[0]/display[1], 0.1, 50.0)
 
     glTranslatef(0.0,0.0, -5)
 
@@ -43,7 +74,7 @@ def main():
                 pygame.quit()
                 quit()
 
-        glRotatef(1, 3, 1, 1)
+        
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
         Cube()
         pygame.display.flip()
